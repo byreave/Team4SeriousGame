@@ -9,6 +9,9 @@ public class PlayerControl : MonoBehaviour
     public Slider gravSlider;
     public Slider massSlider;
 
+    public Canvas canvas;
+    public Canvas resCanvas;
+
     void Start()
     {
         gravSlider.onValueChanged.AddListener(onGravSliderBarChanged);
@@ -22,6 +25,7 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         //this.transform.Translate(vector);
+        
 
     }
 
@@ -33,5 +37,11 @@ public class PlayerControl : MonoBehaviour
     public void onMassSliderBarChanged(float value)
     {
         this.GetComponent<Rigidbody2D>().mass = value;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        canvas.gameObject.SetActive(false);
+        resCanvas.gameObject.SetActive(true);
+
     }
 }
