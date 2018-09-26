@@ -6,13 +6,16 @@ public class PlayerControl : MonoBehaviour
 {
 
     // Use this for initialization
-    public GameObject slider;
-    private Vector3 vector;
+    public Slider gravSlider;
+    public Slider massSlider;
+
     void Start()
     {
-        vector = new Vector3(0.01f, 0.01f, 0.0f);
-        slider.GetComponent<Slider>().onValueChanged.AddListener(onSliderBarChanged);
-        //slider = GameObject.Find("Silder");
+        gravSlider.onValueChanged.AddListener(onGravSliderBarChanged);
+        massSlider.onValueChanged.AddListener(onMassSliderBarChanged);
+        this.GetComponent<Rigidbody2D>().gravityScale = gravSlider.value;
+        this.GetComponent<Rigidbody2D>().mass = massSlider.value;
+
     }
 
     // Update is called once per frame
@@ -23,9 +26,12 @@ public class PlayerControl : MonoBehaviour
     }
 
 
-    public void onSliderBarChanged(float value)
+    public void onGravSliderBarChanged(float value)
     {
-        vector.x = value;
         this.GetComponent<Rigidbody2D>().gravityScale = value;
+    }
+    public void onMassSliderBarChanged(float value)
+    {
+        this.GetComponent<Rigidbody2D>().mass = value;
     }
 }
