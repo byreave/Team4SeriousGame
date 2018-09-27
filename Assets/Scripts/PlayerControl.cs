@@ -26,8 +26,6 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         //this.transform.Translate(vector);
-        
-
     }
 
 
@@ -49,7 +47,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.Equals(endgame))
         {
-            Debug.Log("it worked");
+            //Debug.Log("it worked");
             canvas.gameObject.SetActive(false);
             resCanvas.gameObject.SetActive(true);
         }
