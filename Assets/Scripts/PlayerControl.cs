@@ -58,8 +58,8 @@ public class PlayerControl : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        canvas.gameObject.SetActive(false);
-        resCanvas.gameObject.SetActive(true);
+        //canvas.gameObject.SetActive(false);
+       // resCanvas.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
