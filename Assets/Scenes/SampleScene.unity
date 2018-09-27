@@ -202,7 +202,7 @@ RectTransform:
   - {fileID: 157168644}
   - {fileID: 1866328238}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -373,7 +373,7 @@ RectTransform:
   - {fileID: 859488298}
   - {fileID: 731420925}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -391,6 +391,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f030fbf47e5d24d85a4f9b9b3f09db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &337604570
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4213472937941416, guid: 73cc133ffa32e6d4ca6c1c863e33a3aa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.54881084
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213472937941416, guid: 73cc133ffa32e6d4ca6c1c863e33a3aa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -9.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213472937941416, guid: 73cc133ffa32e6d4ca6c1c863e33a3aa, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213472937941416, guid: 73cc133ffa32e6d4ca6c1c863e33a3aa, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213472937941416, guid: 73cc133ffa32e6d4ca6c1c863e33a3aa, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213472937941416, guid: 73cc133ffa32e6d4ca6c1c863e33a3aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213472937941416, guid: 73cc133ffa32e6d4ca6c1c863e33a3aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213472937941416, guid: 73cc133ffa32e6d4ca6c1c863e33a3aa, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73cc133ffa32e6d4ca6c1c863e33a3aa, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &406775479
 Prefab:
   m_ObjectHideFlags: 0
@@ -656,7 +698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &731420924
 GameObject:
@@ -898,7 +940,7 @@ Transform:
   m_LocalScale: {x: 1.0950111, y: 2.5404258, z: 1.0950111}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1082870262
 Rigidbody2D:
@@ -1091,7 +1133,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1152709079
 CircleCollider2D:
@@ -1123,12 +1165,18 @@ MonoBehaviour:
   massSlider: {fileID: 1197802421}
   canvas: {fileID: 92467235}
   resCanvas: {fileID: 242213479}
+  endgame: {fileID: 1329311438}
 --- !u!114 &1197802421 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114699360652803220, guid: a01841d095507444ea5688c47fcd0aed,
     type: 2}
   m_PrefabInternal: {fileID: 1866328237}
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1329311438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1510288466132198, guid: 73cc133ffa32e6d4ca6c1c863e33a3aa,
+    type: 2}
+  m_PrefabInternal: {fileID: 337604570}
 --- !u!1 &1519727401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,7 +1618,7 @@ Transform:
   m_LocalScale: {x: 1.8874439, y: 1.5479101, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2142368400
 GameObject:
