@@ -10,7 +10,7 @@ public class GravityTextControl : MonoBehaviour {
     public Text maxText;
     public Text curText;
 
-    private float GravitationalConstant = 9.8f;
+    private float GravitationalConstant = - Physics.gravity.y;
     private Slider slider;
     void Start()
     {

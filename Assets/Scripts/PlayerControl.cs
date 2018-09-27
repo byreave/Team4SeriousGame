@@ -15,8 +15,9 @@ public class PlayerControl : MonoBehaviour
 
     public float force = 0.05f;
 
-    public bool toLeft = false;
-    public bool toRight = false;
+    public bool toLeft = false; //move by button
+    public bool toRight = false; //move by button
+
     void Start()
     {
 
@@ -30,9 +31,6 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
         if (toLeft)
         {
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-force * Time.deltaTime, 0));
@@ -44,6 +42,7 @@ public class PlayerControl : MonoBehaviour
         else
             this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
 
+        
         //this.transform.Translate(vector);
     }
 
@@ -75,5 +74,31 @@ public class PlayerControl : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
         }
+
+        if(collision.gameObject.CompareTag("Watertile"))
+        {
+            Debug.Log("IT'S WATER!");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Watertile"))
+        {
+            applyFlotation(collision);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Watertile"))
+        {
+            Debug.Log("BYE WATER!");
+        }
+    }
+
+    private void applyFlotation(Collider2D collision)
+    {
+        this.GetComponent<Rigidbody2D>().AddForce(collision.gameObject.GetComponent<WatertileControl>().getCurrentFlotation(this.transform.position, this.GetComponent<CircleCollider2D>().radius));
+
     }
 }
