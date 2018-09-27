@@ -13,21 +13,20 @@ public class ResultCanvasControl : MonoBehaviour {
     public void OnRestartClick()
     {
         //SceneManager.LoadScene("SampleScene");
-        playGame();
+        concatenateStageName();
         SceneManager.LoadScene(stageName);
     }
     public void OnNextClick()
     {
         //SceneManager.LoadScene("SampleScene");
         i_suffix++;
-        playGame();
+        concatenateStageName();
         SceneManager.LoadScene(stageName);
     }
 
-    private void playGame()
+    private void concatenateStageName()
     {
         suffix = i_suffix.ToString();
         stageName = prefix + suffix;
-        Debug.Log(stageName);
     }
 }
