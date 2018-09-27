@@ -51,5 +51,14 @@ public class PlayerControl : MonoBehaviour
             canvas.gameObject.SetActive(false);
             resCanvas.gameObject.SetActive(true);
         }
+
+        if (collision.gameObject.CompareTag("Collectable"))
+        {
+            collision.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("no");
+        }
     }
 }
