@@ -13,8 +13,13 @@ public class PlayerControl : MonoBehaviour
     public Canvas resCanvas;
     public GameObject endgame;
 
+    public float force = 0.05f;
+
+    public bool toLeft = false;
+    public bool toRight = false;
     void Start()
     {
+
         gravSlider.onValueChanged.AddListener(onGravSliderBarChanged);
         massSlider.onValueChanged.AddListener(onMassSliderBarChanged);
         this.GetComponent<Rigidbody2D>().gravityScale = gravSlider.value;
@@ -25,6 +30,20 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
+        if (toLeft)
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-force * Time.deltaTime, 0));
+        }
+        else if (toRight)
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(force * Time.deltaTime, 0));
+        }
+        else
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
+
         //this.transform.Translate(vector);
     }
 
@@ -39,8 +58,8 @@ public class PlayerControl : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-
+        canvas.gameObject.SetActive(false);
+        resCanvas.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
