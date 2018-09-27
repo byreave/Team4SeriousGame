@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour
 
     public Canvas canvas;
     public Canvas resCanvas;
+    public GameObject endgame;
 
     void Start()
     {
@@ -25,8 +26,6 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         //this.transform.Translate(vector);
-        
-
     }
 
 
@@ -40,8 +39,17 @@ public class PlayerControl : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        canvas.gameObject.SetActive(false);
-        resCanvas.gameObject.SetActive(true);
+        
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.Equals(endgame))
+        {
+            //Debug.Log("it worked");
+            canvas.gameObject.SetActive(false);
+            resCanvas.gameObject.SetActive(true);
+        }
     }
 }
