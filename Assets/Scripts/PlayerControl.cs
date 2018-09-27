@@ -56,9 +56,5 @@ public class PlayerControl : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
         }
-        else
-        {
-            Debug.Log("no");
-        }
     }
 }
