@@ -10,13 +10,11 @@ public class ButtonControl : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if(this.gameObject.name.Equals("ButtonLeft"))
         {
-            Debug.Log(this.gameObject.name);
             player.GetComponent<PlayerControl>().toLeft = true;
 
         }
         if (this.gameObject.name.Equals("ButtonRight"))
             player.GetComponent<PlayerControl>().toRight = true;
-
     }
     public void OnPointerUp(PointerEventData eventData)
     {

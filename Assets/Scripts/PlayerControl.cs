@@ -13,10 +13,14 @@ public class PlayerControl : MonoBehaviour
     public Canvas resCanvas;
     public GameObject endgame;
 
-    public float force = 0.05f;
+    public float force = 20f;
 
     public bool toLeft = false; //move by button
     public bool toRight = false; //move by button
+
+    //sprite image
+    private Sprite orange;
+    private Sprite blue;
 
     void Start()
     {
@@ -25,6 +29,9 @@ public class PlayerControl : MonoBehaviour
         massSlider.onValueChanged.AddListener(onMassSliderBarChanged);
         this.GetComponent<Rigidbody2D>().gravityScale = gravSlider.value;
         this.GetComponent<Rigidbody2D>().mass = massSlider.value;
+
+        orange = Resources.Load<Sprite>("SpritePlayer");
+        blue = Resources.Load<Sprite>("SpritePlayer2");
 
     }
 
@@ -100,5 +107,17 @@ public class PlayerControl : MonoBehaviour
     {
         this.GetComponent<Rigidbody2D>().AddForce(collision.gameObject.GetComponent<WatertileControl>().getCurrentFlotation(this.transform.position, this.GetComponent<CircleCollider2D>().radius));
 
+    }
+
+    public void changeMode()
+    {
+        if (this.GetComponent<SpriteRenderer>().sprite != orange)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = orange; 
+        }
+        else
+        {
+            this.GetComponent<SpriteRenderer>().sprite = blue; 
+        }
     }
 }
