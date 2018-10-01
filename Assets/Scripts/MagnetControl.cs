@@ -24,7 +24,8 @@ public class MagnetControl : MonoBehaviour {
             if (Player.GetComponent<PlayerControl>().isMagnetic)
             {
                 Rigidbody2D playerRig = Player.GetComponent<Rigidbody2D>();
-                force = 2.0f * Physics.gravity * playerRig.mass * playerRig.gravityScale * Vector2.Distance(Player.transform.position, this.GetComponentInParent<Transform>().position);
+                //force = 2.0f * Physics.gravity * playerRig.mass * playerRig.gravityScale * Vector2.Distance(Player.transform.position, this.GetComponentInParent<Transform>().position);
+                force = 2.0f * Physics.gravity * playerRig.mass * playerRig.gravityScale * this.GetComponent<BoxCollider2D>().size.y;
             }
         }
     }
@@ -34,7 +35,21 @@ public class MagnetControl : MonoBehaviour {
         {
             if (Player.GetComponent<PlayerControl>().isMagnetic)
             {
-                Player.GetComponent<Rigidbody2D>().AddForce(-force / Vector2.Distance(Player.transform.position, this.GetComponentInParent<Transform>().position));
+                Rigidbody2D playerRig = Player.GetComponent<Rigidbody2D>();
+                
+                Player.GetComponent<Rigidbody2D>().AddForce(-2.0f * Physics.gravity * playerRig.mass * playerRig.gravityScale * this.GetComponent<BoxCollider2D>().size.y / Vector2.Distance(Player.transform.position, this.GetComponentInParent<Transform>().position));
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Player")
+        {
+            if (Player.GetComponent<PlayerControl>().isMagnetic)
+            {
+                Rigidbody2D playerRig = Player.GetComponent<Rigidbody2D>();
+
+                Player.GetComponent<Rigidbody2D>().AddForce(2.0f * Physics.gravity * playerRig.mass * playerRig.gravityScale * this.GetComponent<BoxCollider2D>().size.y / Vector2.Distance(Player.transform.position, this.GetComponentInParent<Transform>().position));
             }
         }
     }

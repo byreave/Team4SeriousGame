@@ -12,16 +12,17 @@ public class ResultCanvasControl : MonoBehaviour {
 
     public void OnRestartClick()
     {
-        //SceneManager.LoadScene("SampleScene");
-        concatenateStageName();
-        SceneManager.LoadScene(stageName);
+        SceneManager.LoadScene(prefix + "6");
+
+        //concatenateStageName();
+        //SceneManager.LoadScene(stageName);
     }
     public void OnNextClick()
     {
-        //SceneManager.LoadScene("SampleScene");
-        i_suffix++;
-        concatenateStageName();
-        SceneManager.LoadScene(stageName);
+        SceneManager.LoadScene(prefix+"6");
+        //i_suffix++;
+        //concatenateStageName();
+        //SceneManager.LoadScene(stageName);
     }
 
     private void concatenateStageName()

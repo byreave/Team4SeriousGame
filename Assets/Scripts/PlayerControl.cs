@@ -8,9 +8,11 @@ public class PlayerControl : MonoBehaviour
     public struct Material
     {
         public float mass; //since we don't change volume of our object, mass = density
+        public string name;
         public PhysicsMaterial2D material;
+        public Sprite sprite;
         public bool isMagnetic;
-        public Material(float m, PhysicsMaterial2D mat, bool isM) { mass = m; material = mat; isMagnetic = isM; }
+        public Material(float m, PhysicsMaterial2D mat, bool isM, Sprite s, string n) { mass = m; material = mat; isMagnetic = isM; sprite = s; name = n; }
     }
 
     // Use this for initialization
@@ -23,18 +25,22 @@ public class PlayerControl : MonoBehaviour
 
     public PhysicsMaterial2D ironMat;
     public PhysicsMaterial2D rubberMat;
-    public float force = 20f;
+    public float force = 50.0f;
 
     public bool toLeft = false; //move by button
     public bool toRight = false; //move by button
 
 
     //sprite image
-    private Sprite orange;
-    private Sprite blue;
+    [SerializeField]
+    private Sprite RubberSprite;
+    [SerializeField]
+    private Sprite IronSprite;
 
     //Material
     List<Material> Materials;
+    Material Iron;
+    Material Rubber;
     Material currentMat;
 
     //Magnetic
@@ -49,12 +55,12 @@ public class PlayerControl : MonoBehaviour
         this.GetComponent<Rigidbody2D>().gravityScale = gravSlider.value;
         this.GetComponent<Rigidbody2D>().mass = massSlider.value;
 
-        orange = Resources.Load<Sprite>("SpritePlayer");
-        blue = Resources.Load<Sprite>("SpritePlayer2");
+        //orange = Resources.Load<Sprite>("SpritePlayer");
+        //blue = Resources.Load<Sprite>("SpritePlayer2");
 
         //create / add materials here
-        Material Iron = new Material(5.0f, ironMat, true);
-        Material Rubber = new Material(1.0f, rubberMat, false);
+        Iron = new Material(5.0f, ironMat, true, IronSprite, "Iron");
+        Rubber = new Material(0.5f, rubberMat, false, RubberSprite, "Rubber");
         Materials.Add(Iron);
         Materials.Add(Rubber);
         isMagnetic = false;
@@ -138,14 +144,21 @@ public class PlayerControl : MonoBehaviour
 
     public void changeMode()
     {
-        if (this.GetComponent<SpriteRenderer>().sprite != orange)
-        {
-            this.GetComponent<SpriteRenderer>().sprite = orange; 
-        }
+        //if (this.GetComponent<SpriteRenderer>().sprite != orange)
+        //{
+        //    this.GetComponent<SpriteRenderer>().sprite = orange; 
+        //}
+        //else
+        //{
+        //    this.GetComponent<SpriteRenderer>().sprite = blue; 
+        //}
+        if (currentMat.name == "Iron")
+            switchMaterial(Rubber);
+        else if (currentMat.name == "Rubber")
+            switchMaterial(Iron);
         else
-        {
-            this.GetComponent<SpriteRenderer>().sprite = blue; 
-        }
+            Debug.Log("Material Error!");
+
     }
 
     public void switchMaterial(Material m)
@@ -155,5 +168,6 @@ public class PlayerControl : MonoBehaviour
         this.GetComponent<CircleCollider2D>().sharedMaterial = m.material;
         isMagnetic = m.isMagnetic;
         currentMat = m;
+        this.GetComponent<SpriteRenderer>().sprite = m.sprite;
     }
 }

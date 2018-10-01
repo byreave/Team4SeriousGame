@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WatertileControl : MonoBehaviour {
 
-    public float density = 1.0f;
+    public float density = 0.01f;
 
     [SerializeField]
     private Vector2 gravity;
@@ -36,6 +36,7 @@ public class WatertileControl : MonoBehaviour {
         }
         float area = Mathf.Acos(h / radius) * radius * radius - Mathf.Sqrt((radius * radius - h * h)) * h;
         force = - density * area * gravity; //nagative because anti-gravity direction
+        Debug.Log(force);
         return force;
     }
     public void onSliderChange(float value)

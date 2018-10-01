@@ -120,7 +120,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 99bf433b8ff3fa94ea6c5ad11d3a55a4, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -156,6 +156,12 @@ MonoBehaviour:
   canvas: {fileID: 0}
   resCanvas: {fileID: 0}
   endgame: {fileID: 0}
+  ironMat: {fileID: 6200000, guid: 3f8ea303a424f114ab0b634012da4707, type: 2}
+  rubberMat: {fileID: 6200000, guid: 68261f082beae6147872cbf584b72a23, type: 2}
+  force: 20
+  toLeft: 0
+  toRight: 0
+  isMagnetic: 0
 --- !u!198 &198044136884730878
 ParticleSystem:
   m_ObjectHideFlags: 1
