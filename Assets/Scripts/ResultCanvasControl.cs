@@ -12,6 +12,7 @@ public class ResultCanvasControl : MonoBehaviour {
 
     public void OnRestartClick()
     {
+
         SceneManager.LoadScene(prefix + "6");
 
         //concatenateStageName();
