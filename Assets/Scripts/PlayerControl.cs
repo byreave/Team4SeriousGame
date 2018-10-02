@@ -14,17 +14,14 @@ public class PlayerControl : MonoBehaviour
         public bool isMagnetic;
         public Material(float m, PhysicsMaterial2D mat, bool isM, Sprite s, string n) { mass = m; material = mat; isMagnetic = isM; sprite = s; name = n; }
     }
-    //for paricle systems
-    public GameObject player;
-    public ParticleSystem Ping;
 
     // Use this for initialization
     public Slider gravSlider;
     public Slider massSlider;
 
+    public GameObject Spring;
+
     public Canvas canvas;
-    public Canvas canvasStateR;
-    public Canvas canvasStateI;
     public Canvas resCanvas;
     public GameObject endgame;
 
@@ -35,30 +32,23 @@ public class PlayerControl : MonoBehaviour
     public bool toLeft = false; //move by button
     public bool toRight = false; //move by button
 
-    
-
 
     //sprite image
     [SerializeField]
     private Sprite RubberSprite;
-    
     [SerializeField]
     private Sprite IronSprite;
-
-    public Sprite Indicator;
-    public Sprite rubberI;
-    public Sprite IronI;
 
     //Material
     List<Material> Materials;
     Material Iron;
     Material Rubber;
     Material currentMat;
-    Material IronIn;
-    Material RubberIn;
 
     //Magnetic
     public bool isMagnetic;
+
+    private bool OnSpring;
     
 
     void Start()
@@ -75,12 +65,10 @@ public class PlayerControl : MonoBehaviour
         //create / add materials here
         Iron = new Material(5.0f, ironMat, true, IronSprite, "Iron");
         Rubber = new Material(0.5f, rubberMat, false, RubberSprite, "Rubber");
-        IronIn = new Material(5.0f, ironMat, true, IronI, "IronI");
-        RubberIn = new Material(0.5f, rubberMat, false, rubberI, "RubberI");
         Materials.Add(Iron);
         Materials.Add(Rubber);
         isMagnetic = false;
-        canvasStateI.gameObject.SetActive(true);
+        OnSpring = true;
 
         switchMaterial(Iron);
     }
@@ -170,25 +158,13 @@ public class PlayerControl : MonoBehaviour
         //    this.GetComponent<SpriteRenderer>().sprite = blue; 
         //}
         if (currentMat.name == "Iron")
-        {
             switchMaterial(Rubber);
-            canvasStateR.gameObject.SetActive(true);
-            canvasStateI.gameObject.SetActive(false);
-        }
-
         else if (currentMat.name == "Rubber")
-        {
             switchMaterial(Iron);
-            canvasStateI.gameObject.SetActive(true);
-            canvasStateR.gameObject.SetActive(false);
-        }
         else
             Debug.Log("Material Error!");
-        
 
     }
-
-            
 
     public void switchMaterial(Material m)
     {
@@ -198,6 +174,31 @@ public class PlayerControl : MonoBehaviour
         isMagnetic = m.isMagnetic;
         currentMat = m;
         this.GetComponent<SpriteRenderer>().sprite = m.sprite;
-        Instantiate(Ping, player.transform.localPosition, Quaternion.identity, player.transform);
+    }
+
+    private void OnMouseDrag()
+    {
+        Debug.Log("asds");
+        if (OnSpring)
+        {
+            Transform pad = Spring.transform.Find("Pad");
+            Transform spring = Spring.transform.Find("Spring").Find("Spring");
+            Debug.Log(spring.GetComponentInParent<SpriteRenderer>().size);
+            spring.GetComponentInParent<SpringControl>().IsPressed = true;
+            Vector3 mousePos = Input.mousePosition;
+            //Debug.Log(mousePos);
+            Vector3 resPos = Camera.main.ScreenToWorldPoint(mousePos);
+            
+            this.transform.position = new Vector3(resPos.x, this.transform.position.y, this.transform.position.z);
+        }
+        
+    }
+    private void OnMouseUpAsButton()
+    {
+        if(OnSpring)
+        {
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(Spring.transform.Find("Spring").Find("Spring").GetComponentInParent<SpringControl>().getBounceForce(), 0));
+            OnSpring = false;
+        }
     }
 }
