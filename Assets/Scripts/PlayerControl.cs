@@ -19,6 +19,8 @@ public class PlayerControl : MonoBehaviour
     public Slider gravSlider;
     public Slider massSlider;
 
+    public GameObject Spring;
+
     public Canvas canvas;
     public Canvas resCanvas;
     public GameObject endgame;
@@ -45,6 +47,8 @@ public class PlayerControl : MonoBehaviour
 
     //Magnetic
     public bool isMagnetic;
+
+    private bool OnSpring;
     
 
     void Start()
@@ -64,6 +68,7 @@ public class PlayerControl : MonoBehaviour
         Materials.Add(Iron);
         Materials.Add(Rubber);
         isMagnetic = false;
+        OnSpring = true;
 
         switchMaterial(Iron);
     }
@@ -169,5 +174,31 @@ public class PlayerControl : MonoBehaviour
         isMagnetic = m.isMagnetic;
         currentMat = m;
         this.GetComponent<SpriteRenderer>().sprite = m.sprite;
+    }
+
+    private void OnMouseDrag()
+    {
+        Debug.Log("asds");
+        if (OnSpring)
+        {
+            Transform pad = Spring.transform.Find("Pad");
+            Transform spring = Spring.transform.Find("Spring").Find("Spring");
+            Debug.Log(spring.GetComponentInParent<SpriteRenderer>().size);
+            spring.GetComponentInParent<SpringControl>().IsPressed = true;
+            Vector3 mousePos = Input.mousePosition;
+            //Debug.Log(mousePos);
+            Vector3 resPos = Camera.main.ScreenToWorldPoint(mousePos);
+            
+            this.transform.position = new Vector3(resPos.x, this.transform.position.y, this.transform.position.z);
+        }
+        
+    }
+    private void OnMouseUpAsButton()
+    {
+        if(OnSpring)
+        {
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2(Spring.transform.Find("Spring").Find("Spring").GetComponentInParent<SpringControl>().getBounceForce(), 0));
+            OnSpring = false;
+        }
     }
 }
