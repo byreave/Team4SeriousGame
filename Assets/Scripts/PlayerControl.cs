@@ -68,7 +68,10 @@ public class PlayerControl : MonoBehaviour
         Materials.Add(Iron);
         Materials.Add(Rubber);
         isMagnetic = false;
+<<<<<<< HEAD
         OnSpring = true;
+=======
+>>>>>>> parent of 1c2a5a6... Level Update
 
         switchMaterial(Iron);
     }
@@ -174,6 +177,7 @@ public class PlayerControl : MonoBehaviour
         isMagnetic = m.isMagnetic;
         currentMat = m;
         this.GetComponent<SpriteRenderer>().sprite = m.sprite;
+<<<<<<< HEAD
     }
 
     private void OnMouseDrag()
@@ -200,5 +204,7 @@ public class PlayerControl : MonoBehaviour
             this.GetComponent<Rigidbody2D>().AddForce(new Vector2(Spring.transform.Find("Spring").Find("Spring").GetComponentInParent<SpringControl>().getBounceForce(), 0));
             OnSpring = false;
         }
+=======
+>>>>>>> parent of 1c2a5a6... Level Update
     }
 }
