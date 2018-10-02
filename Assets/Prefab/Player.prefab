@@ -125,18 +125,16 @@ MonoBehaviour:
   gravSlider: {fileID: 0}
   massSlider: {fileID: 0}
   canvas: {fileID: 0}
-  canvasStateR: {fileID: 0}
-  canvasStateI: {fileID: 0}
   resCanvas: {fileID: 0}
   endgame: {fileID: 0}
   ironMat: {fileID: 6200000, guid: 3f8ea303a424f114ab0b634012da4707, type: 2}
   rubberMat: {fileID: 6200000, guid: 68261f082beae6147872cbf584b72a23, type: 2}
-  force: 100
+  force: {x: 10, y: 0, z: 0}
   toLeft: 0
   toRight: 0
   RubberSprite: {fileID: 21300000, guid: 8f5b201bb48e3804bbd709c3f73926ea, type: 3}
   IronSprite: {fileID: 21300000, guid: 8a0a39f7b9dbb6345bd744b2d15afe22, type: 3}
-  Gyroscope: {x: 10, y: 0, z: 0}
+  SpeedLimit: 2
   Indicator: {fileID: 0}
   rubberI: {fileID: 21300000, guid: fbcd9b3e5c859c94390b61dd903ca035, type: 3}
   IronI: {fileID: 21300000, guid: a473f70d7dd57404fac8b39ca5394eb5, type: 3}
