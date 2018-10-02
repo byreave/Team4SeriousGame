@@ -23,8 +23,8 @@ public class PlayerControl : MonoBehaviour
     public Slider massSlider;
 
     public Canvas canvas;
-    public Canvas canvasStateR;
-    public Canvas canvasStateI;
+    //public Canvas canvasStateR;
+    //public Canvas canvasStateI;
     public Canvas resCanvas;
     public GameObject endgame;
 
@@ -69,9 +69,7 @@ public class PlayerControl : MonoBehaviour
         this.GetComponent<Rigidbody2D>().gravityScale = gravSlider.value;
         this.GetComponent<Rigidbody2D>().mass = massSlider.value;
 
-        //orange = Resources.Load<Sprite>("SpritePlayer");
-        //blue = Resources.Load<Sprite>("SpritePlayer2");
-
+        Debug.Log("hello");
         //create / add materials here
         Iron = new Material(5.0f, ironMat, true, IronSprite, "Iron");
         Rubber = new Material(0.5f, rubberMat, false, RubberSprite, "Rubber");
@@ -80,9 +78,10 @@ public class PlayerControl : MonoBehaviour
         Materials.Add(Iron);
         Materials.Add(Rubber);
         isMagnetic = false;
-        canvasStateI.gameObject.SetActive(true);
+        //canvasStateI.gameObject.SetActive(true);
 
         switchMaterial(Iron);
+        Debug.Log(currentMat.name);
     }
 
     // Update is called once per frame
@@ -172,15 +171,15 @@ public class PlayerControl : MonoBehaviour
         if (currentMat.name == "Iron")
         {
             switchMaterial(Rubber);
-            canvasStateR.gameObject.SetActive(true);
-            canvasStateI.gameObject.SetActive(false);
+            //canvasStateR.gameObject.SetActive(true);
+            //canvasStateI.gameObject.SetActive(false);
         }
 
         else if (currentMat.name == "Rubber")
         {
             switchMaterial(Iron);
-            canvasStateI.gameObject.SetActive(true);
-            canvasStateR.gameObject.SetActive(false);
+            //canvasStateI.gameObject.SetActive(true);
+            //canvasStateR.gameObject.SetActive(false);
         }
         else
             Debug.Log("Material Error!");
@@ -188,7 +187,7 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-            
+
 
     public void switchMaterial(Material m)
     {
@@ -199,5 +198,6 @@ public class PlayerControl : MonoBehaviour
         currentMat = m;
         this.GetComponent<SpriteRenderer>().sprite = m.sprite;
         Instantiate(Ping, player.transform.localPosition, Quaternion.identity, player.transform);
+
     }
 }

@@ -209,8 +209,10 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -3.955, y: 0}
-  - {x: 3.955, y: 0}
+  - {x: -3.9183502, y: 1.795828}
+  - {x: -0.11593437, y: 1.7958279}
+  - {x: 2.6742494, y: -0.70499945}
+  - {x: 3.7717524, y: -0.7696402}
 --- !u!223 &398883627 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 223615197633157200, guid: 0e1ab6e87d62f3941adc44728bcf8360,
@@ -231,11 +233,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4753135991879946, guid: 3b371d3654a585a43afe53f0f0725098, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.9825244
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 4753135991879946, guid: 3b371d3654a585a43afe53f0f0725098, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.057560086
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: 4753135991879946, guid: 3b371d3654a585a43afe53f0f0725098, type: 2}
       propertyPath: m_LocalPosition.z
@@ -711,6 +713,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 109384198}
+    - target: {fileID: 224447610952324902, guid: a0ef007a8b9db9945a913873d31fb9ab,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -113.12988
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0ef007a8b9db9945a913873d31fb9ab, type: 2}
   m_IsPrefabAsset: 0
