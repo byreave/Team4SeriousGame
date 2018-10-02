@@ -19,8 +19,8 @@ public class PlayerControl : MonoBehaviour
     public ParticleSystem Ping;
 
     // Use this for initialization
-    public Slider gravSlider;
-    public Slider massSlider;
+    //public Slider gravSlider;
+    //public Slider massSlider;
 
     public Canvas canvas;
     //public Canvas canvasStateR;
@@ -30,6 +30,7 @@ public class PlayerControl : MonoBehaviour
 
     public PhysicsMaterial2D ironMat;
     public PhysicsMaterial2D rubberMat;
+    public PhysicsMaterial2D glassMat;
     public Vector3 force;
 
     public bool toLeft = false; //move by button
@@ -41,9 +42,10 @@ public class PlayerControl : MonoBehaviour
     //sprite image
     [SerializeField]
     private Sprite RubberSprite;
-    
     [SerializeField]
     private Sprite IronSprite;
+    [SerializeField]
+    private Sprite GlassSprite;
     [SerializeField]
     private float SpeedLimit = 2.0f;
 
@@ -55,26 +57,31 @@ public class PlayerControl : MonoBehaviour
     List<Material> Materials;
     Material Iron;
     Material Rubber;
-    Material currentMat;
+    Material Glass;
+    public Material currentMat;
     Material IronIn;
     Material RubberIn;
 
     //Magnetic
     public bool isMagnetic;
+
+    //Material Index
+    private int ind = 0;
     
 
     void Start()
     {
         Materials = new List<Material>();
-        gravSlider.onValueChanged.AddListener(onGravSliderBarChanged);
-        massSlider.onValueChanged.AddListener(onMassSliderBarChanged);
-        this.GetComponent<Rigidbody2D>().gravityScale = gravSlider.value;
-        this.GetComponent<Rigidbody2D>().mass = massSlider.value;
+        //gravSlider.onValueChanged.AddListener(onGravSliderBarChanged);
+        //massSlider.onValueChanged.AddListener(onMassSliderBarChanged);
+        //this.GetComponent<Rigidbody2D>().gravityScale = gravSlider.value;
+        //this.GetComponent<Rigidbody2D>().mass = massSlider.value;
 
         Debug.Log("hello");
         //create / add materials here
         Iron = new Material(5.0f, ironMat, true, IronSprite, "Iron");
         Rubber = new Material(0.5f, rubberMat, false, RubberSprite, "Rubber");
+        Glass = new Material(2.0f, glassMat, false, GlassSprite, "Glass");
         IronIn = new Material(5.0f, ironMat, true, IronI, "IronI");
         RubberIn = new Material(0.5f, rubberMat, false, rubberI, "RubberI");
         Materials.Add(Iron);
@@ -83,6 +90,7 @@ public class PlayerControl : MonoBehaviour
         //canvasStateI.gameObject.SetActive(true);
 
         switchMaterial(Iron);
+        ind = 0;
         Debug.Log(currentMat.name);
     }
 
@@ -171,21 +179,25 @@ public class PlayerControl : MonoBehaviour
         //{
         //    this.GetComponent<SpriteRenderer>().sprite = blue; 
         //}
-        if (currentMat.name == "Iron")
-        {
-            switchMaterial(Rubber);
-            //canvasStateR.gameObject.SetActive(true);
-            //canvasStateI.gameObject.SetActive(false);
-        }
+        //if (currentMat.name == "Iron")
+        //{
+        //    switchMaterial(Rubber);
+        //    //canvasStateR.gameObject.SetActive(true);
+        //    //canvasStateI.gameObject.SetActive(false);
+        //}
 
-        else if (currentMat.name == "Rubber")
-        {
-            switchMaterial(Iron);
-            //canvasStateI.gameObject.SetActive(true);
-            //canvasStateR.gameObject.SetActive(false);
-        }
-        else
-            Debug.Log("Material Error!");
+        //else if (currentMat.name == "Rubber")
+        //{
+        //    switchMaterial(Iron);
+        //    //canvasStateI.gameObject.SetActive(true);
+        //    //canvasStateR.gameObject.SetActive(false);
+        //}
+        //else
+        //    Debug.Log("Material Error!");
+        ind++;
+        if (ind >= Materials.Count)
+            ind = 0;
+        switchMaterial(Materials[ind]);
         
 
     }
