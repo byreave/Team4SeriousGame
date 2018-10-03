@@ -12,7 +12,6 @@ public class StartMenu : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         //gm = GameObject.Find("__app");
         gm = GameObject.FindGameObjectWithTag("GameController");
-        Debug.Log(gm + " : " );
     }
     public void OnPointerDown(PointerEventData eventData)
     {
