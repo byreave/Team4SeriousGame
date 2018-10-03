@@ -8,13 +8,14 @@ public class Particles : MonoBehaviour {
     public LayerMask layerMask;
     // Use this for initialization
 
-    public GameObject other;
+    
 	void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		
 	}
     private void OnJointBreak2D(Joint2D joint)
@@ -25,10 +26,15 @@ public class Particles : MonoBehaviour {
         Debug.Log("nice");
 
     }
-    private void OnParticleCollision(GameObject other)
+    private void OnParticleCollision(GameObject WaterTile)
     {
-        Destroy(this);
+        Debug.Log("gotHim");
+        
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collided");
     }
 
 
