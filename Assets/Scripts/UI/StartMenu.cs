@@ -6,16 +6,20 @@ using UnityEngine.EventSystems;
 public class StartMenu : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     //game manager
-    GameObject gm;
+    private GameObject gm;
 
     private void Awake()
     {
-        gm = Object.FindObjectOfType<GameObject>();
+        //gm = GameObject.Find("__app");
+        gm = GameObject.FindGameObjectWithTag("GameController");
         Debug.Log(gm + " : " );
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        //gm.GetComponent<GameManager>().StageManager();
+        if (gm != null)
+        {
+            gm.GetComponent<GameManager>().StageManager();
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
