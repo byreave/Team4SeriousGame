@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonControl : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class ButtonControlForStartMenu : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public GameObject player;
     public void OnPointerDown(PointerEventData eventData)
     {
         if(this.gameObject.name.Equals("ButtonLeft"))
         {
-            player.GetComponent<PlayerControl>().toLeft = true;
-
+            player.GetComponent<PlayerControlForStartMenu>().toLeft = true;
         }
         if (this.gameObject.name.Equals("ButtonRight"))
-            player.GetComponent<PlayerControl>().toRight = true;
+            player.GetComponent<PlayerControlForStartMenu>().toRight = true;
     }
     public void OnPointerUp(PointerEventData eventData)
     {
         if (this.gameObject.name.Equals("ButtonLeft"))
-            player.GetComponent<PlayerControl>().toLeft = false;
+            player.GetComponent<PlayerControlForStartMenu>().toLeft = false;
         if (this.gameObject.name.Equals("ButtonRight"))
-            player.GetComponent<PlayerControl>().toRight = false;
+            player.GetComponent<PlayerControlForStartMenu>().toRight = false;
     }
 }

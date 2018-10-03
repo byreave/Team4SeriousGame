@@ -31,7 +31,8 @@ public class PlayerControl : MonoBehaviour
     public PhysicsMaterial2D ironMat;
     public PhysicsMaterial2D rubberMat;
     public PhysicsMaterial2D glassMat;
-    public Vector3 force;
+    //public Vector3 force;
+    public float force = 50.0f;
 
     public bool toLeft = false; //move by button
     public bool toRight = false; //move by button
@@ -97,18 +98,18 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (toLeft)
-        //{
-        //    this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-force * Time.deltaTime, 0));
-        //}
-        //else if (toRight)
-        //{
-        //    this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(force * Time.deltaTime, 0));
-        //}
-        //else
-        //    this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
-        if(Mathf.Abs(this.GetComponent<Rigidbody2D>().velocity.x) <= SpeedLimit)
-            this.GetComponent<Rigidbody2D>().AddForce(Input.acceleration.x * force);
+        if (toLeft)
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(50.0f * Time.deltaTime,0));;
+        }
+        else if (toRight)
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(50.0f * Time.deltaTime,0));
+        }
+        else
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
+        //if(Mathf.Abs(this.GetComponent<Rigidbody2D>().velocity.x) <= SpeedLimit)
+        //    this.GetComponent<Rigidbody2D>().AddForce(Input.acceleration.x * force);
         
         //this.transform.Translate(vector);
     }
@@ -171,14 +172,6 @@ public class PlayerControl : MonoBehaviour
 
     public void changeMode()
     {
-        //if (this.GetComponent<SpriteRenderer>().sprite != orange)
-        //{
-        //    this.GetComponent<SpriteRenderer>().sprite = orange; 
-        //}
-        //else
-        //{
-        //    this.GetComponent<SpriteRenderer>().sprite = blue; 
-        //}
         //if (currentMat.name == "Iron")
         //{
         //    switchMaterial(Rubber);
