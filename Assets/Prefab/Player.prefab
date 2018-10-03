@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271282850055916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.8, y: 3.73, z: -5.61}
+  m_LocalPosition: {x: -8.28, y: 4.02, z: -5.61}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4684460846996610}
@@ -122,18 +122,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1271282850055916}
   Ping: {fileID: 198877931305393316, guid: 0550f30996a4140478464e647aff0b15, type: 2}
-  gravSlider: {fileID: 0}
-  massSlider: {fileID: 0}
   canvas: {fileID: 0}
   resCanvas: {fileID: 0}
   endgame: {fileID: 0}
   ironMat: {fileID: 6200000, guid: 3f8ea303a424f114ab0b634012da4707, type: 2}
   rubberMat: {fileID: 6200000, guid: 68261f082beae6147872cbf584b72a23, type: 2}
+  glassMat: {fileID: 6200000, guid: 491e8eae0db1958409170b19c85291e9, type: 2}
   force: {x: 10, y: 0, z: 0}
   toLeft: 0
   toRight: 0
-  RubberSprite: {fileID: 21300000, guid: 8f5b201bb48e3804bbd709c3f73926ea, type: 3}
-  IronSprite: {fileID: 21300000, guid: 8a0a39f7b9dbb6345bd744b2d15afe22, type: 3}
+  RubberSprite: {fileID: 21300000, guid: 514e862b33c51e340b8b7eb1382edb9f, type: 3}
+  IronSprite: {fileID: 21300000, guid: 499a9aa8f6ba11f4ca1f319e36a7d08a, type: 3}
+  GlassSprite: {fileID: 21300000, guid: ec0c2121a952139468282f6c2d4678e8, type: 3}
   SpeedLimit: 2
   Indicator: {fileID: 0}
   rubberI: {fileID: 21300000, guid: fbcd9b3e5c859c94390b61dd903ca035, type: 3}
@@ -4764,12 +4764,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 8a0a39f7b9dbb6345bd744b2d15afe22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 499a9aa8f6ba11f4ca1f319e36a7d08a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 2.2, y: 2.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
