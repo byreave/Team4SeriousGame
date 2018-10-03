@@ -33,16 +33,16 @@ public class Water : MonoBehaviour {
     const float z = -1f;
 
     //The properties of our water
-    float baseheight;
-    float left;
-    float bottom;
-    float ScaleSize;
+    public float baseheight;
+    public float left;
+    public float bottom;
+    public float ScaleSize;
 
     void Start()
     {
         //Spawning our water
-        ScaleSize = this.transform.localScale.y;
-        SpawnWater(this.transform.position.x, this.transform.localScale.x, ScaleSize, this.transform.position.y);//ScaleSize-( ScaleSize*2));
+        
+        SpawnWater(left, ScaleSize, baseheight, bottom);//ScaleSize-( ScaleSize*2));
         
     }
 
