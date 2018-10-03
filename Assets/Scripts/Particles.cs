@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Particles : MonoBehaviour {
     public ParticleSystem Explosion;
-	// Use this for initialization
+
+    public LayerMask layerMask;
+    // Use this for initialization
+
+    public GameObject other;
 	void Start () {
 		
 	}
@@ -19,5 +23,13 @@ public class Particles : MonoBehaviour {
         Instantiate(Explosion,(joint.transform.position), Quaternion.identity);
 
         Debug.Log("nice");
+
     }
+    private void OnParticleCollision(GameObject other)
+    {
+        Destroy(this);
+
+    }
+
+
 }
