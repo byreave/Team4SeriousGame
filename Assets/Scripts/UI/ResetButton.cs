@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class ResetButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+
+    private GameObject gm;
+
+    private void Awake()
+    {
+        gm = GameObject.FindGameObjectWithTag("GameController");
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         
@@ -21,6 +29,6 @@ public class ResetButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void StartOver()
     {
-        SceneManager.LoadScene("Lvl_6");
+        gm.GetComponent<GameManager>().StageManager(false);
     }
 }

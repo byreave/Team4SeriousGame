@@ -17,7 +17,7 @@ public class StartMenu : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (gm != null)
         {
-            gm.GetComponent<GameManager>().StageManager();
+            gm.GetComponent<GameManager>().StageManager(false);
         }
     }
 

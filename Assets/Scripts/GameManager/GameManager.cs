@@ -8,11 +8,17 @@ public class GameManager : MonoBehaviour {
     //stagemanager
     public int sm ;
 
-    
-	// Use this for initialization
-	void Awake () {
+    private static int i_suffix = 6;
+    private static string suffix;
+    private static string prefix = "Lvl_";
+    private static string stageName;
+
+
+    // Use this for initialization
+    void Awake () {
         DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("StartMenu");
+        suffix = "6";
 	}
 	
 	// Update is called once per frame
@@ -20,8 +26,19 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-    public void StageManager()
+    public void StageManager(bool passed)
     {
-        SceneManager.LoadScene("Lvl_6");
-    } 
+        if (passed)
+        {
+            i_suffix++;
+        }
+        concatenateStageName();
+        SceneManager.LoadScene(stageName);
+    }
+
+    private void concatenateStageName()
+    {
+        suffix = i_suffix.ToString();
+        stageName = prefix + suffix;
+    }
 }
