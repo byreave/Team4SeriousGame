@@ -25,7 +25,7 @@ public class MagnetControl : MonoBehaviour {
             {
                 Rigidbody2D playerRig = Player.GetComponent<Rigidbody2D>();
                 //force = 2.0f * Physics.gravity * playerRig.mass * playerRig.gravityScale * Vector2.Distance(Player.transform.position, this.GetComponentInParent<Transform>().position);
-                force = 2.0f * Physics.gravity * playerRig.mass * playerRig.gravityScale * this.GetComponent<BoxCollider2D>().size.y;
+                force = 3.0f * Physics.gravity * playerRig.mass * playerRig.gravityScale * this.GetComponent<BoxCollider2D>().size.y;
             }
         }
     }
