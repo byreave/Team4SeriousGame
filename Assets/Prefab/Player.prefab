@@ -66,9 +66,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271282850055916}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.28, y: 4.02, z: -5.61}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.24775697, w: -0.96882224}
+  m_LocalPosition: {x: -33.037712, y: -9.43815, z: -5.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4684460846996610}
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1271282850055916}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3f8ea303a424f114ab0b634012da4707, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   Indicator: {fileID: 0}
   rubberI: {fileID: 21300000, guid: fbcd9b3e5c859c94390b61dd903ca035, type: 3}
   IronI: {fileID: 21300000, guid: a473f70d7dd57404fac8b39ca5394eb5, type: 3}
-  isMagnetic: 0
+  isMagnetic: 1
 --- !u!198 &198118140245973650
 ParticleSystem:
   m_ObjectHideFlags: 1
