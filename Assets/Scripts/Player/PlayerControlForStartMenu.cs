@@ -72,6 +72,7 @@ public class PlayerControlForStartMenu : MonoBehaviour
     void Start()
     {
         Materials = new List<Material>();
+        Debug.Log("in start menuFF");
 
         //create / add materials here
         Iron = new Material(5.0f, ironMat, true, IronSprite, "Iron");

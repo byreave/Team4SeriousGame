@@ -14224,7 +14224,7 @@ Prefab:
     - target: {fileID: 114481065238013774, guid: 825f325b728d5b8418faff96780a55f9,
         type: 2}
       propertyPath: SpeedLimit
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4949934963262108, guid: 825f325b728d5b8418faff96780a55f9, type: 2}
       propertyPath: m_LocalScale.x
@@ -14463,19 +14463,19 @@ Prefab:
     - target: {fileID: 20161976797781280, guid: 08777a9e261dd3c409c60cdb2f47352a,
         type: 2}
       propertyPath: orthographic size
-      value: 10
+      value: 4.1
       objectReference: {fileID: 0}
     - target: {fileID: 4731902594403040, guid: 08777a9e261dd3c409c60cdb2f47352a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.2299995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4731902594403040, guid: 08777a9e261dd3c409c60cdb2f47352a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.2140002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4731902594403040, guid: 08777a9e261dd3c409c60cdb2f47352a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 15.610001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114374735022474040, guid: 08777a9e261dd3c409c60cdb2f47352a,
         type: 2}
@@ -25309,6 +25309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitOnce: {fileID: 21300000, guid: 96aafc09b3f33f746b1f56bd7275278d, type: 3}
   HitTwice: {fileID: 21300000, guid: 4751baa77c495b345bc66a17ded42455, type: 3}
+  glassDoorFadeTime: 2
 --- !u!61 &1728421312
 BoxCollider2D:
   m_ObjectHideFlags: 0

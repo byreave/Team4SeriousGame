@@ -30,7 +30,15 @@ public class GameManager : MonoBehaviour {
     {
         if (passed)
         {
-            i_suffix++;
+            Debug.Log(i_suffix);
+            if (i_suffix == 8)
+            {
+                SceneManager.LoadScene("StartMenu");
+            }
+            else
+            {
+                i_suffix++;
+            }
         }
         concatenateStageName();
         SceneManager.LoadScene(stageName);

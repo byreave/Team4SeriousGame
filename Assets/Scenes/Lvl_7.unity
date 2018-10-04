@@ -6068,6 +6068,11 @@ Prefab:
       propertyPath: bouncesound
       value: 
       objectReference: {fileID: 8300000, guid: bae34c041f2f06b4fa93da1be0b59750, type: 3}
+    - target: {fileID: 114481065238013774, guid: 825f325b728d5b8418faff96780a55f9,
+        type: 2}
+      propertyPath: SpeedLimit
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 825f325b728d5b8418faff96780a55f9, type: 2}
   m_IsPrefabAsset: 0
