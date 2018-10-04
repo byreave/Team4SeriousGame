@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
     //Audio things
     private AudioSource source;
     public AudioClip watersplash;
+    public AudioClip bouncesound;
 
     //Material definition
     public struct Material
@@ -137,7 +138,8 @@ public class PlayerControl : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //canvas.gameObject.SetActive(false);
-       // resCanvas.gameObject.SetActive(true);
+        // resCanvas.gameObject.SetActive(true);
+        source.PlayOneShot(bouncesound, 1);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
