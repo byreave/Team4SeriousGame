@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Particles : MonoBehaviour {
-    public ParticleSystem Explosion;
-
+    public ParticleSystem SnowFall;
+    private ArrayList collided;
     public LayerMask layerMask;
+    public GameObject Water;
     // Use this for initialization
 
     
@@ -16,26 +17,29 @@ public class Particles : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		
+  
 	}
     private void OnJointBreak2D(Joint2D joint)
     {
         
-        Instantiate(Explosion,(joint.transform.position), Quaternion.identity);
+        //Instantiate(Explosion,(joint.transform.position), Quaternion.identity);
 
         Debug.Log("nice");
 
     }
-    private void OnParticleCollision(GameObject WaterTile)
+    private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("gotHim");
+        //ParticleSystem ps = GetComponent<ParticleSystem>();
+        //ps.
+        Debug.Log("kill");
+        Destroy(other);
         
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collided");
     }
+
 
 
 }
