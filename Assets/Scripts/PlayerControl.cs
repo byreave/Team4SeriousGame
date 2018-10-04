@@ -36,7 +36,7 @@ public class PlayerControl : MonoBehaviour
     public bool toLeft = false; //move by button
     public bool toRight = false; //move by button
 
-    
+
 
 
     //sprite image
@@ -67,7 +67,7 @@ public class PlayerControl : MonoBehaviour
 
     //Material Index
     private int ind = 0;
-    
+
 
     void Start()
     {
@@ -114,7 +114,6 @@ public class PlayerControl : MonoBehaviour
             this.GetComponent<Rigidbody2D>().AddForce(Input.acceleration.x * force);
         else if (this.GetComponent<Rigidbody2D>().velocity.x <= -SpeedLimit && Input.acceleration.x > 0)
             this.GetComponent<Rigidbody2D>().AddForce(Input.acceleration.x * force);
-
         //this.transform.Translate(vector);
     }
 
@@ -178,11 +177,11 @@ public class PlayerControl : MonoBehaviour
     {
         //if (this.GetComponent<SpriteRenderer>().sprite != orange)
         //{
-        //    this.GetComponent<SpriteRenderer>().sprite = orange; 
+        //    this.GetComponent<SpriteRenderer>().sprite = orange;
         //}
         //else
         //{
-        //    this.GetComponent<SpriteRenderer>().sprite = blue; 
+        //    this.GetComponent<SpriteRenderer>().sprite = blue;
         //}
         //if (currentMat.name == "Iron")
         //{
@@ -203,7 +202,7 @@ public class PlayerControl : MonoBehaviour
         if (ind >= Materials.Count)
             ind = 0;
         switchMaterial(Materials[ind]);
-        
+
 
     }
 
