@@ -31,8 +31,7 @@ public class PlayerControl : MonoBehaviour
     public PhysicsMaterial2D ironMat;
     public PhysicsMaterial2D rubberMat;
     public PhysicsMaterial2D glassMat;
-    //public Vector3 force;
-    public float force = 50.0f;
+    public Vector3 force;
 
     public bool toLeft = false; //move by button
     public bool toRight = false; //move by button
@@ -210,7 +209,7 @@ public class PlayerControl : MonoBehaviour
         isMagnetic = m.isMagnetic;
         currentMat = m;
         this.GetComponent<SpriteRenderer>().sprite = m.sprite;
-        Instantiate(Ping, player.transform.localPosition, Quaternion.identity, player.transform);
+        //Instantiate(Ping, player.transform.localPosition, Quaternion.identity, player.transform);
 
     }
 }
