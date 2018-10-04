@@ -83,6 +83,7 @@ public class PlayerControl : MonoBehaviour
         Iron = new Material(5.0f, ironMat, true, IronSprite, "Iron");
         Rubber = new Material(1.0f, rubberMat, false, RubberSprite, "Rubber");
         Glass = new Material(2.0f, glassMat, false, GlassSprite, "Glass");
+        Glass = new Material(4.0f, glassMat, false, GlassSprite, "Glass");
         IronIn = new Material(5.0f, ironMat, true, IronI, "IronI");
         RubberIn = new Material(0.5f, rubberMat, false, rubberI, "RubberI");
         Materials.Add(Iron);
@@ -99,19 +100,23 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (toLeft)
-        {
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(50.0f * Time.deltaTime,0));;
-        }
-        else if (toRight)
-        {
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(50.0f * Time.deltaTime,0));
-        }
-        else
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
-        //if(Mathf.Abs(this.GetComponent<Rigidbody2D>().velocity.x) <= SpeedLimit)
-        //    this.GetComponent<Rigidbody2D>().AddForce(Input.acceleration.x * force);
-        
+
+        //if (toLeft)
+        //{
+        //    this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-force * Time.deltaTime, 0));
+        //}
+        //else if (toRight)
+        //{
+        //    this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(force * Time.deltaTime, 0));
+        //}
+        //else
+        //    this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 0));
+        if(Mathf.Abs(this.GetComponent<Rigidbody2D>().velocity.x) <= SpeedLimit)
+            this.GetComponent<Rigidbody2D>().AddForce(Input.acceleration.x * force);
+        else if(this.GetComponent<Rigidbody2D>().velocity.x >= SpeedLimit && Input.acceleration.x < 0)
+            this.GetComponent<Rigidbody2D>().AddForce(Input.acceleration.x * force);
+        else if (this.GetComponent<Rigidbody2D>().velocity.x <= -SpeedLimit && Input.acceleration.x > 0)
+            this.GetComponent<Rigidbody2D>().AddForce(Input.acceleration.x * force);
         //this.transform.Translate(vector);
     }
 

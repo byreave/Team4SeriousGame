@@ -41,7 +41,8 @@ public class Water : MonoBehaviour {
     void Start()
     {
         //Spawning our water
-        SpawnWater(left,ScaleSize, baseheight , bottom);
+        
+        SpawnWater(left, ScaleSize, baseheight, bottom);//ScaleSize-( ScaleSize*2));
         
     }
 
