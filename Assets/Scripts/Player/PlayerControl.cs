@@ -82,7 +82,6 @@ public class PlayerControl : MonoBehaviour
         //create / add materials here
         Iron = new Material(5.0f, ironMat, true, IronSprite, "Iron");
         Rubber = new Material(1.0f, rubberMat, false, RubberSprite, "Rubber");
-        Glass = new Material(2.0f, glassMat, false, GlassSprite, "Glass");
         Glass = new Material(4.0f, glassMat, false, GlassSprite, "Glass");
         IronIn = new Material(5.0f, ironMat, true, IronI, "IronI");
         RubberIn = new Material(0.5f, rubberMat, false, rubberI, "RubberI");
