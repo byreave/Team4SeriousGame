@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerControl : MonoBehaviour
 {
+    //Audio things
+    private AudioSource source;
+    public AudioClip watersplash;
+
     //Material definition
     public struct Material
     {
@@ -71,6 +75,9 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
+        //sound initialization
+        source = GetComponent<AudioSource>();
+
         Materials = new List<Material>();
         //gravSlider.onValueChanged.AddListener(onGravSliderBarChanged);
         //massSlider.onValueChanged.AddListener(onMassSliderBarChanged);
@@ -150,6 +157,7 @@ public class PlayerControl : MonoBehaviour
         if(collision.gameObject.CompareTag("Watertile"))
         {
             Debug.Log("IT'S WATER!");
+            source.PlayOneShot(watersplash, 1);
         }
     }
 
@@ -165,6 +173,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.CompareTag("Watertile"))
         {
             Debug.Log("BYE WATER!");
+            source.PlayOneShot(watersplash, 1);
         }
     }
 
