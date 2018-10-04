@@ -14,7 +14,6 @@ public class PlayerControlForStartMenu : MonoBehaviour
         public bool isMagnetic;
         public Material(float m, PhysicsMaterial2D mat, bool isM, Sprite s, string n) { mass = m; material = mat; isMagnetic = isM; sprite = s; name = n; }
     }
-
     //for paricle systems
     public GameObject player;
     public ParticleSystem Ping;
