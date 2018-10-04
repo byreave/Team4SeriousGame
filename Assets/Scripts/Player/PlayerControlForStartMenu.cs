@@ -76,7 +76,7 @@ public class PlayerControlForStartMenu : MonoBehaviour
         //create / add materials here
         Iron = new Material(5.0f, ironMat, true, IronSprite, "Iron");
         Rubber = new Material(0.5f, rubberMat, false, RubberSprite, "Rubber");
-        Glass = new Material(2.0f, glassMat, false, GlassSprite, "Glass");
+        Glass = new Material(3.0f, glassMat, false, GlassSprite, "Glass");
         IronIn = new Material(5.0f, ironMat, true, IronI, "IronI");
         RubberIn = new Material(0.5f, rubberMat, false, rubberI, "RubberI");
         Materials.Add(Iron);
@@ -84,7 +84,7 @@ public class PlayerControlForStartMenu : MonoBehaviour
         isMagnetic = false;
         //canvasStateI.gameObject.SetActive(true);
 
-        switchMaterial(Iron);
+        switchMaterial(Glass);
         ind = 0;
     }
 
