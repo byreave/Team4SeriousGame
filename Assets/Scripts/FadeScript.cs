@@ -25,7 +25,6 @@ public class FadeScript : MonoBehaviour
             alfa = 0;
         }
         fin = true;
-        alfa = 1;
     }
 
     void Update()
